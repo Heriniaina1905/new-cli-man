@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -19,7 +21,8 @@ public class Achat implements Serializable{
     private static final long serialVersionUID = 1L;
     
     @Id
-    private String ref;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ref;
     @OneToMany
     @JoinColumn(name = "BOX_REF", nullable = true)
     private Collection<Box> box;
@@ -31,18 +34,18 @@ public class Achat implements Serializable{
     public Achat() {
     }
 
-    public Achat(String ref, Collection<Box> box, Collection<Client> client, Date date) {
+    public Achat(Long ref, Collection<Box> box, Collection<Client> client, Date date) {
         this.ref = ref;
         this.box = box;
         this.client = client;
         this.date = date;
     }
 
-    public String getRef() {
+    public Long getRef() {
         return ref;
     }
 
-    public void setRef(String ref) {
+    public void setRef(Long ref) {
         this.ref = ref;
     }
 
