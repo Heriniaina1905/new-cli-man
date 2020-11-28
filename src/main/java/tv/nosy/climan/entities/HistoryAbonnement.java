@@ -1,6 +1,7 @@
 package tv.nosy.climan.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -27,10 +28,12 @@ public class HistoryAbonnement implements Serializable{
     @JoinColumn(name = "ABONNEMENT_REF", nullable = true)
     private Collection<Abonnement> abonnement;
 
-    public HistoryAbonnement(Long ref, Collection<Box> box, Collection<Abonnement> abonnement) {
+    private Date date;
+    public HistoryAbonnement(Long ref, Collection<Box> box, Collection<Abonnement> abonnement, Date date) {
         this.ref = ref;
         this.box = box;
         this.abonnement = abonnement;
+        this.date = date;
     }
 
     public HistoryAbonnement(){
@@ -59,6 +62,14 @@ public class HistoryAbonnement implements Serializable{
 
     public void setAbonnement(Collection <Abonnement> abonnement) {
         this.abonnement = abonnement;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
     
 }
