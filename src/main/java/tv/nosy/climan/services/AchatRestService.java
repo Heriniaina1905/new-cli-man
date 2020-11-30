@@ -32,8 +32,8 @@ public class AchatRestService {
         return achatRepository.findByClient(refCli);
     }
 
-    // @RequestMapping(value = "box")
-    // public Achat findByBox(@RequestParam String ref){
-    //     return achatRepository.findByBox(ref);
-    // }
+    @RequestMapping(value = "box")
+    public Achat findByBox(@RequestParam String ref){
+        return achatRepository.findByBox(ref);
+    }
 }
