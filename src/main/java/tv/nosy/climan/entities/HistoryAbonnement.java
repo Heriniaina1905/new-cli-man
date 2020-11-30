@@ -19,7 +19,6 @@ public class HistoryAbonnement implements Serializable{
     
     @Id
     private Long ref;
-
     @ManyToMany
     @JoinColumn(name = "BOX_REF", nullable = true)
     private Collection<Box> box;
@@ -29,8 +28,8 @@ public class HistoryAbonnement implements Serializable{
     private Collection<Abonnement> abonnement;
 
     private Date date;
-    public HistoryAbonnement(Long ref, Collection<Box> box, Collection<Abonnement> abonnement, Date date) {
-        this.ref = ref;
+    public HistoryAbonnement(/*Long ref,*/ Collection<Box> box, Collection<Abonnement> abonnement, Date date) {
+        // this.ref = ref;
         this.box = box;
         this.abonnement = abonnement;
         this.date = date;
